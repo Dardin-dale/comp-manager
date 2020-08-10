@@ -4,7 +4,14 @@
   "description": "Beer competition manager",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "per-env",
+    "start:production": "node server.js",
+    "start:development": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && yarn start",
+    "install": "cd client && yarn install",
+    "build": "cd client && yarn build",
+    "test": "NODE_ENV=test per-env",
+    "test:test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -19,10 +26,12 @@
   "dependencies": {
     "express": "^4.17.1",
     "mysql": "^2.18.1",
+    "per-env": "^1.0.2",
     "sequelize": "^6.3.4"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "mocha": "^8.1.1",
     "nodemon": "^2.0.4"
   }
 }
