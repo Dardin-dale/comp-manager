@@ -9,10 +9,27 @@
     Able to navigate to other pages from the nav bar or other UI
 */
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
+
+import { changeLanguage } from '../services/localizationService';
+
 import logo from '../logo.svg';
 import '../App.css';
 
 function Home() {
+    const lang = useSelector(state => state.i18n.i18nData);
+    const dispatch = useDispatch();
+
+    const onClicked = (event) => {
+      let lang = event.currentTarget.dataset.language
+      dispatch(
+        changeLanguage({
+          lang
+        })
+      )
+    }
+
     return (
       <div className="App">
         <header className="App-header">
@@ -26,8 +43,11 @@ function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+           {/* Learn react */}
+           {lang['learnReact']}
           </a>
+          <img src="https://bit.ly/2NR57Sj" alt="en" data-language="en" onClick={onClicked} />
+          <img src="https://bit.ly/36C7DV5" alt="es" data-language="es" onClick={onClicked} />
         </header>
       </div>
     );
