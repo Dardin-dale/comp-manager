@@ -25,7 +25,7 @@ export const i18n = createSlice({
     },
     reducers: {
         changeLanguage: (state, action) => {
-            let lang = action.payload;
+            let lang = action.payload.lang;
             if(state.languages[lang]){
                 state.i18nData = state.languages[lang];
             }  

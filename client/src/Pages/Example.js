@@ -10,19 +10,20 @@
 */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { nanoid } from '@reduxjs/toolkit';
 
 import { changeLanguage } from '../services/localizationService';
 
 import logo from '../logo.svg';
+import flagUS from '../Assets/flag-united-states_1f1fa-1f1f8.png';
+import flagMX from '../Assets/flag-mexico_1f1f2-1f1fd.png';
 import '../App.css';
 
-function Home() {
+function Example() {
     const lang = useSelector(state => state.i18n.i18nData);
     const dispatch = useDispatch();
 
     const onClicked = (event) => {
-      let lang = event.currentTarget.dataset.language
+      let lang = event.currentTarget.dataset.language;
       dispatch(
         changeLanguage({
           lang
@@ -46,11 +47,11 @@ function Home() {
            {/* Learn react */}
            {lang['learnReact']}
           </a>
-          <img src="https://bit.ly/2NR57Sj" alt="en" data-language="en" onClick={onClicked} />
-          <img src="https://bit.ly/36C7DV5" alt="es" data-language="es" onClick={onClicked} />
+          <img src={flagUS} alt="en" data-language="en" onClick={onClicked} />
+          <img src={flagMX} alt="es" data-language="es" onClick={onClicked} />
         </header>
       </div>
     );
 }
 
-export default Home;
+export default Example;
