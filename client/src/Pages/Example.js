@@ -1,10 +1,7 @@
 /* 
-    Home Page
+    Example Page
 
-    Should not require log-in should show a search bar and all competitions
-    sorted by latest and nearest the User.
-
-    Clicking on the competition gives the details and an option to enter the Competition.
+    Simple demo page to set up Lanuage Support/redux
 
     Able to navigate to other pages from the nav bar or other UI
 */
