@@ -26,7 +26,7 @@ Click next
 Enter the path for the crt file.
 Proceed through the next few screens to import the certificate
 
-In /client:
+-In /client-
 `mkcert create-cert --ca-key ../../cert-auth/ca.key --ca-cert ../../cert-auth/ca.crt`
 
 add the output files (cert.crt, cert.key) to the client .env file
@@ -35,11 +35,14 @@ Your client .env should look as follows:
 SSL_CRT_FILE=cert.crt
 SSL_KEY_FILE=cert.key`
 
-In the root directory
+-In the root directory-
 `openssl req -x509 -newkey rsa:4096 -keyout cert.key -out cert.crt -days 365`
 
 Add the Cert, key and passphrase to the root .env and then also authorize
 that crt file on Windows so that the Express server runs on https.
+
+or follow the heroku [guide](https://devcenter.heroku.com/articles/ssl-endpoint)
+
 
 ### Development
 
