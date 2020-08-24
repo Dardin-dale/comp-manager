@@ -2,7 +2,10 @@ require('dotenv-safe').config();
 const express = require("express");
 const routes = require("./src/routes");
 const app = express();
+const https = require('https');
+const fs = require('fs');
 const PORT = process.env.PORT || 5000;
+
 
 // Configure body parsing for AJAX requests
 app.use(express.urlencoded({ extended: true }));
@@ -15,13 +18,22 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-//Create Socket and listen for save book event
-// const server = require('http').createServer(app);
+// // Start App listening
+// app.listen(PORT, () =>
+//   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
+// );
+
+//Secure Server Port
+https.createServer({
+  key: fs.readFileSync('./cert.key'),
+  cert: fs.readFileSync('./cert.crt'),
+  passphrase: process.env.SSL_PASS
+}, app)
+.listen(PORT, () => {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
+});
 
 
 // server.listen(PORT);
 
-// Start the API server
-app.listen(PORT, () =>
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
-);
+

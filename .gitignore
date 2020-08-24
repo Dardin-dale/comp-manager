@@ -4,3 +4,7 @@ build
 .env
 package-lock.json
 yarn.lock
+cert.pem
+key.pem
+cert.crt
+cert.key
