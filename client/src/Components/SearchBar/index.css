@@ -1,0 +1,17 @@
+
+.searchRoot {
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+}
+
+
+.searchInput {
+    margin-left: 10px;
+    flex: 1;
+}
+
+.searchBtn {
+    padding: 10;  
+}

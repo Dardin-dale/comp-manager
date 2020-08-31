@@ -10,7 +10,8 @@
 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SearchBar from '../Components/SearchBar';
+import SearchBar from '../../Components/SearchBar';
+import './index.css';
 
 
 class Home extends Component {
@@ -26,7 +27,7 @@ class Home extends Component {
 
     render() {
         return(
-            <div className="Home">
+            <div className="Page Home">
                 <SearchBar lang={this.state.lang.SearchBar}/>
             </div>
         );     

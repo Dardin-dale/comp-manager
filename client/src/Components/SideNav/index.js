@@ -10,9 +10,17 @@
 */
 
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function SideNav () {
     const lang = useSelector(state => state.i18n.i18nData);
+
+    return(
+        <div>
+            
+        </div>
+
+    );
 
 }
 

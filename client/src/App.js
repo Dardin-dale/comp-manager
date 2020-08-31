@@ -6,7 +6,12 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect, useSelector, useDispatch } from 'react-redux';
 //import Example from './Pages/Example';
-import Home from './Pages/Home';
+import Header from './Components/Header';
+import SideNav from './Components/SideNav';
+import Home from './Pages/Home/Home';
+import Footer from './Components/Footer';
+
+import { Grid } from '@material-ui/core';
 
 import './App.css';
 
@@ -18,17 +23,30 @@ class App extends Component {
     }
   }
 
-  
-  
 
   render() {
     const App = () => (
-      <div>
-        <Switch>
-          <Route exact path='/' component={Home}/>
-          {/* <Route path='/list' component={List}/> */}
-        </Switch>
-      </div>
+      <Grid container direction="column" spacing={2}>
+        <Grid item>
+            <Header />
+        </Grid>
+        <Grid container
+          direction="row"
+        >
+          <Grid item>
+            <SideNav /> 
+          </Grid>
+          <Grid item>
+            <Switch>
+              <Route exact path='/' component={Home}/>
+              {/* <Route path='/list' component={List}/> */}
+            </Switch>
+          </Grid>
+        </Grid>
+        <Grid container direction="row">
+          <Footer lang={this.state.lang} />
+        </Grid>
+      </Grid>
     )
     return (
       <Switch>

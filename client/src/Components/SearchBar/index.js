@@ -1,28 +1,23 @@
 import React from 'react';
-import { TextField, InputAdornment } from '@material-ui/core';
+import { IconButton, TextField } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import './index.css';
 
 function SearchBar (props) {
     const lang = props.lang;
     return(
-        <div className="search">
+        <div className="searchRoot">
             <TextField 
-            id="filled-search" 
-            label={lang.label} 
-            type="search" 
-            startadornment={<InputAdornment position="start">{SearchIcon}</InputAdornment>}
-            variant="filled" 
+                className="searchInput"
+                // type="search"
+                placeholder={lang.defaultValue}
+                inputProps={{'aria-label': lang.label}}
             />
-            {/* <TextField
-            id="filled-helperText"
-            label={lang.label}
-            defaultValue={lang.defaultValue}
-            
-            helperText={lang.helperText}
-            variant="filled"
-            /> */}
+            <IconButton type="submit" className="searchBtn" aria-label={lang.label}>
+                <SearchIcon />
+            </IconButton>
         </div>
-    );  
+    ); 
 }
 
 export default SearchBar;
