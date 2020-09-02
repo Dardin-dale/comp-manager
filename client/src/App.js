@@ -6,8 +6,8 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect, useSelector, useDispatch } from 'react-redux';
 //import Example from './Pages/Example';
-import Header from './Components/Header';
-import SideNav from './Components/SideNav';
+import Header from './Components/DashBoard';
+// import SideNav from './Components/SideNav';
 import Home from './Pages/Home/Home';
 import Footer from './Components/Footer';
 

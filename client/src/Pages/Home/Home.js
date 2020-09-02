@@ -27,7 +27,7 @@ class Home extends Component {
 
     render() {
         return(
-            <div className="Page Home">
+            <div className="Home">
                 <SearchBar lang={this.state.lang.SearchBar}/>
             </div>
         );     

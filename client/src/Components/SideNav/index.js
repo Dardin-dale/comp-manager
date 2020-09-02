@@ -11,15 +11,20 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Paper, MenuList, MenuItem } from '@material-ui/core';
 
 function SideNav () {
     const lang = useSelector(state => state.i18n.i18nData);
 
     return(
-        <div>
-            
-        </div>
-
+        <Paper>
+            <MenuList>
+                <MenuItem>Manage Entries</MenuItem>
+                <MenuItem>Manage Comps</MenuItem>
+                <MenuItem>New Competition</MenuItem>
+                <MenuItem>Cellar</MenuItem>
+            </MenuList>
+        </Paper>
     );
 
 }
