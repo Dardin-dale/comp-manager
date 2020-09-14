@@ -37,4 +37,8 @@
   }
 }
 
+.root {
+  display: flex;
+}
+
 /* All Previous for example Page App starts Here */
